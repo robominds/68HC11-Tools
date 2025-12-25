@@ -7,6 +7,7 @@ add_library(68hc11support STATIC
     src/hexsubs.c
     src/s19subs.c
     src/sersubs.c
+    src/serial_stubs.c
 )
 
 # Set include directory for the library
