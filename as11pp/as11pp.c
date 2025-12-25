@@ -116,6 +116,7 @@ int parse_file(FILE *outfile, char *asmfile, char opt, char subs[][10], char *ex
 		j = 0;
 		k = 0;
 		l = 0;
+		strtok(line,"\r\n");
 		if(line[0] == '#') {
 			printf("*%s",line);
 			fputc('*',outfile);
@@ -150,7 +151,7 @@ int parse_file(FILE *outfile, char *asmfile, char opt, char subs[][10], char *ex
 				fputs("' not supported\n",outfile);
 			}
 		} else {
-			printf("%s",line);
+			printf("%s\n",line);
 			i = 0;
 			j = 0;
 			k = 0;
