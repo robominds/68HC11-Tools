@@ -2,8 +2,7 @@
 * sercpp.h - C++ Header File for Serial Comm Prog in C and C++      *
 *                Copyright (c) 1992 By Mark D. Goodwin              *
 ********************************************************************/
-#ifndef __SERCPPH__
-#define __SERCPPH__
+#pragma once
 
 #include "serial.h"
 
@@ -59,4 +58,3 @@ public:
 	int printf(char *s, ... );
 };
 
-#endif

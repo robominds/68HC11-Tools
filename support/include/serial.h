@@ -2,8 +2,9 @@
 * serial.h - Header file for Serial Comm Prog in C and C++          *
 *            Copyright (c) 1992 By Mark D. Goodwin                  *
 ********************************************************************/
-#ifndef __SERIALH__
-#define __SERIALH__
+#pragma once
+
+#include "dos_compat.h"
 
 #ifndef __TURBOC__
 #include <time.h>
@@ -92,6 +93,4 @@ void set_tx_xon(int n);
 int xmit_file(int xtype, int (*error_handler)(int c, long p, char *s), char *files[]);
 #ifdef __cplusplus
 }
-#endif
-
 #endif

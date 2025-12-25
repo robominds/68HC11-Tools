@@ -1,6 +1,7 @@
 
-#include <bios.h>
+#include "dos_compat.h"
 
+#include <time.h>
 #include "serial.h"
 #include "sersubs.h"
 
@@ -17,9 +18,9 @@ int timeout(int i) {
 	static long int tx;
 
 	if(i == 0) {
-		tx = biostime(0,0L);
+		tx = time(NULL);
 	} else {
-		if((biostime(0,0L)-tx) >= i) return(1);
+		if((time(NULL)-tx) >= i) return(1);
 	}
 	return(0);
 }

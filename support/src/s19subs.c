@@ -1,8 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <dos.h>
-#include <bios.h>
+#include "dos_compat.h"
 
 #include "s19subs.h"
 #include "hexsubs.h"
