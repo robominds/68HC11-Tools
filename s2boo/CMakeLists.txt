@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(s2boo C)
 
-# Add the support library as a dependency
-add_subdirectory(../support support)
+# Add the support library as a dependency (only if not already added by parent project)
+if(NOT TARGET 68hc11support)
+    add_subdirectory(../support support)
+endif()
 
 # Create the s2boo executable
 add_executable(s2boo s2boo.c)

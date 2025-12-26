@@ -136,7 +136,22 @@ mkdir -p build && cd build && cmake .. && make
 cd ../..
 ```
 
-Or build each component individually as needed.
+**Or build everything at once** using the root-level CMake:
+
+```bash
+# From repository root
+mkdir -p build
+cd build
+cmake ..
+make build-and-test
+```
+
+This will:
+1. Build all components (support library, executables)
+2. Run automated tests (s2s on sample and bootloader files)
+3. Display a summary of built executables and test outputs
+
+For individual component builds, use `make build-all` or `make test-all`.
 
 ## Typical Workflow
 
