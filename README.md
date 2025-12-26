@@ -1,3 +1,12 @@
+├── s2s/                     (S-record restructure utility)
+│   ├── s2s.c
+│   ├── CMakeLists.txt
+│   ├── README.md
+│   └── build/               (generated)
+│
+├── s2boo/
+# <span style="color: red;">*** This repo is untested on H/W ***</span>
+
 # 68HC11 Tools - Motorola 68HC11 Development Toolkit
 
 A comprehensive set of tools and utilities for developing, assembling, and programming code for the Motorola 68HC11 microcontroller family.
@@ -61,7 +70,18 @@ Cross-platform utility for downloading programs to 68HC11 microcontrollers:
 
 See: [loader-pc/README.md](loader-pc/README.md)
 
-#### 5. **s2boo** - S-Record to Boot File Converter
+#### 5. **s2s** - Motorola S-Record Restructure Utility
+Utility for restructuring Motorola S-record (.S19) files:
+- Configurable line lengths for different bootloader requirements
+- Optional execution address specification
+- Checksum validation and record regeneration
+- Cross-platform file format conversion
+
+**Build**: `mkdir -p build && cd build && cmake .. && make`
+
+See: [s2s/README.md](s2s/README.md)
+
+#### 6. **s2boo** - S-Record to Boot File Converter
 Utility for converting Motorola S-record format to 68HC11 boot loader format:
 - Reads .S19 S-record files
 - Generates 256-byte boot blocks
@@ -71,7 +91,7 @@ Utility for converting Motorola S-record format to 68HC11 boot loader format:
 
 See: [s2boo/README.md](s2boo/README.md)
 
-#### 6. **support** - Shared Utility Library
+#### 7. **support** - Shared Utility Library
 Cross-platform library providing common functionality:
 - File handling utilities
 - Hexadecimal conversion
@@ -113,9 +133,16 @@ mkdir -p build && cd build && cmake .. && make
 cd ../..
 
 # Build the S-record converter
+# Build the S-record restructure utility
+cd s2s
+mkdir -p build && cd build && cmake .. && make
+cd ../..
+
+# Build the S-record to boot converter
 cd s2boo
 mkdir -p build && cd build && cmake .. && make
 cd ../..
+- [s2s](s2s/README.md) - S-record restructure utility
 ```
 
 Or build each component individually as needed.
@@ -140,9 +167,13 @@ Or build each component individually as needed.
 
 4. **Convert (Optional)**
    ```bash
+   # Restructure S-records for specific bootloader (e.g., 16-byte records)
+   s2s your_program.s19 restructured.s19 16
+   
+   # Or convert to boot loader format
    s2boo your_program.s19 -o your_program.boo
    ```
-   - Converts to boot loader format if needed
+   - Restructures records or converts to boot loader format as needed
 
 5. **Program Device**
    ```bash
