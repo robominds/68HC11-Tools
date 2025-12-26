@@ -78,16 +78,31 @@ This generates the executable: `s2s` (or `s2s.exe` on Windows)
 
 ## Quick Test
 
-If you've already built the loader-chip targets, you can run `s2s` on one of the generated S19 files via a convenience CMake target:
+Two convenience CMake targets are available for testing:
+
+### Test with Sample File
 
 ```bash
 cd s2s/build
 cmake ..
 make run-sample
-ls -lh sample_prg_e1.x19
+ls -lh sample_min.x19
 ```
 
-This runs `s2s` against `../loader-chip/build/preprocessed/prg_e1.s19` and writes the output to `sample_prg_e1.x19` in the `s2s/build` directory.
+This runs `s2s` on the minimal sample S19 file (`sample/min.S19`) and produces `sample_min.x19`.
+
+### Test with Bootloader Output
+
+If you've also built the `loader-chip` component, you can test with real bootloader output:
+
+```bash
+cd s2s/build
+cmake ..
+make run-loader-chip
+ls -lh prg_e1.x19
+```
+
+This runs `s2s` on the assembled bootloader (`../loader-chip/build/preprocessed/prg_e1.s19`) and produces `prg_e1.x19`.
 
 ## Sample
 
@@ -99,7 +114,10 @@ S107000001020304EE
 S9030000FC
 ```
 
-You can run it via the `run-sample` target (see Quick Test above). The output will be written to `s2s/build/sample_min.x19`.
+The sample contains:
+- **S0** - Header record
+- **S1** - Data record with 4 bytes at address 0x0000
+- **S9** - Termination record with return address 0x0000
 
 ## S-Record Format
 
