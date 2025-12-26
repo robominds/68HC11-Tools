@@ -47,7 +47,7 @@ The project includes loader programs for different 68HC11 variants:
 ### Prerequisites
 
 - `as11pp` - Motorola 6811 Assembly Preprocessor
-- `as11` - Motorola 6811 Assembler
+- `as11` - Motorola 6811 Assembler (https://github.com/JimInCA/motorola-6800-assembler)
 - CMake 3.10 or later
 - C compiler (for building tools)
 
