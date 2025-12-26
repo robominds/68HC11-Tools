@@ -1,4 +1,5 @@
-# <span style="color: red;">*** This repo is untested on H/W ***</span>
+# <span style="color: red;">*** This repo is an updated archive of work from 1995 ***</span>
+# <span style="color: red;">*** This repo is untested on H/W                      ***</span>
 
 # 68HC11 Tools - Motorola 68HC11 Development Toolkit
 
