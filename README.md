@@ -1,10 +1,3 @@
-├── s2s/                     (S-record restructure utility)
-│   ├── s2s.c
-│   ├── CMakeLists.txt
-│   ├── README.md
-│   └── build/               (generated)
-│
-├── s2boo/
 # <span style="color: red;">*** This repo is untested on H/W ***</span>
 
 # 68HC11 Tools - Motorola 68HC11 Development Toolkit
@@ -132,17 +125,15 @@ cd loader-pc
 mkdir -p build && cd build && cmake .. && make
 cd ../..
 
-# Build the S-record converter
-# Build the S-record restructure utility
+# Build the S-record restructure utility (s2s)
 cd s2s
 mkdir -p build && cd build && cmake .. && make
 cd ../..
 
-# Build the S-record to boot converter
+# Build the S-record to boot converter (s2boo)
 cd s2boo
 mkdir -p build && cd build && cmake .. && make
 cd ../..
-- [s2s](s2s/README.md) - S-record restructure utility
 ```
 
 Or build each component individually as needed.
@@ -242,6 +233,12 @@ Tools support multiple 68HC11 variants:
 │   ├── README.md
 │   └── build/               (generated)
 │
+├── s2s/                     (S-record restructure utility)
+│   ├── s2s.c
+│   ├── CMakeLists.txt
+│   ├── README.md
+│   └── build/               (generated)
+│
 ├── s2boo/                   (S-record converter)
 │   ├── s2boo.c
 │   ├── CMakeLists.txt
@@ -275,6 +272,7 @@ Each component has detailed documentation in its README:
 - [as11pp-includes](as11pp-includes/README.md) - Include file reference
 - [loader-chip](loader-chip/README.md) - Bootloader specifications
 - [loader-pc](loader-pc/README.md) - PC utility usage
+- [s2s](s2s/README.md) - S-record restructure utility
 - [s2boo](s2boo/README.md) - File conversion tool
 - [support](support/README.md) - Library reference
 
